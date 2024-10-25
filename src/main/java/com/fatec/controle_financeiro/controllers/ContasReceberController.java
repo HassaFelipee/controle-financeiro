@@ -17,8 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fatec.controle_financeiro.domain.contasreceber.ContasReceberRepository;
 import com.fatec.controle_financeiro.entities.ContasReceber;
-//import com.fatec.controle_financeiro.entities.Fornecedor;
-import com.fatec.controle_financeiro.entities.Fornecedor;
 
 @RestController
 @RequestMapping("/api/contasReceber")
@@ -55,7 +53,7 @@ public class ContasReceberController {
 
     //UPDATE
     @PutMapping("{id}")
-    public ResponseEntity<ContasReceber> updateFornecedor(@PathVariable long id, @RequestBody ContasReceber entity) {
+    public ResponseEntity<ContasReceber> updateContasReceber(@PathVariable long id, @RequestBody ContasReceber entity) {
         Optional<ContasReceber> contaAtual = contasReceberRepository.findById(id);
         if (contaAtual.isPresent()) {
             entity.setId(id);
@@ -69,7 +67,7 @@ public class ContasReceberController {
     //DELETE
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteConta(@PathVariable long id) {
-        Optional<Fornecedor> contaAtual = contasReceberRepository.findById(id);
+        Optional<ContasReceber> contaAtual = contasReceberRepository.findById(id);
         if (contaAtual.isPresent()) {
             contasReceberRepository.deleteById(id);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
