@@ -10,7 +10,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
     // Busca por nome usando =
-    //TESTE COMMIT
+    //TESTE COMMIT2
     List<Cliente> findAllByName(String name);
 
     // Busca por nome usando LIKE %nameparam%
